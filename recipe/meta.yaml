@@ -1,5 +1,5 @@
 {% set name = "geocat-f2py" %}
-{% set version = "2022.03.2" %}
+{% set version = "2022.04.0" %}
 
 package:
   name: {{ name }}
@@ -7,20 +7,21 @@ package:
 
 source:
   url: http://github.com/NCAR/{{ name }}/archive/v{{ version }}.tar.gz # For building from a specific tag's tarball
-  sha256: 5213495766a4f443edb32170a8fc3fce317e82436910bc75df6e5b2cd24fa01e
+  sha256: 81d72c2b26690edb63f271cf5908f1237ea6f8798ebacff7beb68ddf27567d6b
   # git_tag: v{{ version }}   # For building from a specific tag
   # git_rev: march # For building from main branch for debugging purposes
-  # git_url: https://github.com/NCAR/geocat-f2py.git
+  # git_url: https://github.com/NCAR/{{ name }}.git
 
 build:
   number: 1
   skip: true  # [py<38]
 
+
 requirements:
   build:
     - python                              # [build_platform != target_platform]
     - pip                                 # [build_platform != target_platform]
-    - setuptools <60.0.0                  # [build_platform != target_platform]
+    - setuptools                          # [build_platform != target_platform]
     - numpy >=1.22                        # [build_platform != target_platform]
     - {{ compiler('fortran') }}
     - {{ compiler('m2w64_fortran') }}  # [win]
@@ -29,7 +30,7 @@ requirements:
   host:
     - python
     - pip
-    - setuptools <60.0.0
+    - setuptools
     - numpy >=1.22
     - {{ compiler('fortran') }}
   run:
