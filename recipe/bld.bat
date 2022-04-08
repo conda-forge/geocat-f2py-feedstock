@@ -4,6 +4,8 @@ dir %RECIPE_DIR%
 
 echo %LIB%
 
+get-content src/geocat/f2py/__init__.py | %{$_ -replace "multiprocessing.popen_spawn_posix","multiprocessing.popen_spawn_win32"}
+
 cd src/geocat/f2py/fortran
 f2py -c --fcompiler=gnu95 dpres_plevel_dp.pyf dpres_plevel_dp.f
 f2py -c --fcompiler=gnu95 grid2triple.pyf grid2triple.f
