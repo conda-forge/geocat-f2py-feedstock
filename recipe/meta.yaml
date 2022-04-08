@@ -14,7 +14,7 @@ source:
 
 build:
   number: 1
-  skip: true  # [py<38 or win]
+  skip: true  # [py<38]
 
 requirements:
   build:
