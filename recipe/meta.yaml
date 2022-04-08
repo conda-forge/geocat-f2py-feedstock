@@ -25,6 +25,7 @@ requirements:
     - {{ compiler('fortran') }}
     - {{ compiler('m2w64_fortran') }}  # [win]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
+    - m2-sed  # [win]
   host:
     - python
     - pip
