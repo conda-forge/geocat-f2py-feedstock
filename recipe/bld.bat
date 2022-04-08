@@ -4,7 +4,8 @@ dir %RECIPE_DIR%
 
 echo %LIB%
 
-sed -i.bak 's/popen_spawn_posix/popen_spawn_win32/g' src/geocat/f2py/__init__.py
+XCOPY %RECIPE_DIR%\f2py.bat %SCRIPTS% /s /e
+if errorlevel 1 exit 1
 
 cd src/geocat/f2py/fortran
 f2py -c --fcompiler=gnu95 dpres_plevel_dp.pyf dpres_plevel_dp.f
@@ -18,4 +19,7 @@ cd ../../../..
 
 "%PYTHON%" -m pip install . --no-deps --ignore-installed -vv
 
+if errorlevel 1 exit 1
+
+del %SCRIPTS%\f2py.exe
 if errorlevel 1 exit 1
