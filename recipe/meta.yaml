@@ -13,7 +13,7 @@ source:
   # git_url: https://github.com/NCAR/{{ name }}.git
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<38 or win]
 
 requirements:
@@ -61,5 +61,6 @@ extra:
     - anissa111 # A. Zacharias https://github.com/anissa111
     - erogluorhan # O. Eroglu https://github.com/erogluorhan
     - hCraker # H. Craker https://github.com/hCraker
+    - marodrig # M. Rodriguez https://github.com/marodrig
     - michaelavs # M. Sizemore https://github.com/michaelavs
     - pilotchute # A. Kootz https://github.com/pilotchute
