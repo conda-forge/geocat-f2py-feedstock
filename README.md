@@ -1,7 +1,7 @@
 About geocat-f2py
 =================
 
-Home: https://github.com/NCAR/geocat-f2py
+Home: https://geocat.ucar.edu/
 
 Package license: Apache-2.0
 
@@ -10,6 +10,8 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/geocat-f2py-fee
 Summary: GeoCAT-f2py wraps, in Python, the compiled language implementations of some of the computational functions found under the GeoCAT-comp umbrella.
 
 Development: https://github.com/NCAR/geocat-f2py
+
+Documentation: https://geocat-f2py.readthedocs.io
 
 Current build status
 ====================
@@ -95,16 +97,41 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `geocat-f2py` can be installed with:
+Once the `conda-forge` channel has been enabled, `geocat-f2py` can be installed with `conda`:
 
 ```
 conda install geocat-f2py
 ```
 
-It is possible to list all of the versions of `geocat-f2py` available on your platform with:
+or with `mamba`:
+
+```
+mamba install geocat-f2py
+```
+
+It is possible to list all of the versions of `geocat-f2py` available on your platform with `conda`:
 
 ```
 conda search geocat-f2py --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search geocat-f2py --channel conda-forge
+```
+
+Alternatively, `mamba repoquery` may provide more information:
+
+```
+# Search all versions available on your platform:
+mamba repoquery search geocat-f2py --channel conda-forge
+
+# List packages depending on `geocat-f2py`:
+mamba repoquery whoneeds geocat-f2py --channel conda-forge
+
+# List dependencies of `geocat-f2py`:
+mamba repoquery depends geocat-f2py --channel conda-forge
 ```
 
 
@@ -122,10 +149,12 @@ for each of the installable packages. Such a repository is known as a *feedstock
 A feedstock is made up of a conda recipe (the instructions on what and how to build
 the package) and the necessary configurations for automatic building using freely
 available continuous integration services. Thanks to the awesome service provided by
-[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/)
-and [TravisCI](https://travis-ci.com/) it is possible to build and upload installable
-packages to the [conda-forge](https://anaconda.org/conda-forge)
-[Anaconda-Cloud](https://anaconda.org/) channel for Linux, Windows and OSX respectively.
+[Azure](https://azure.microsoft.com/en-us/services/devops/), [GitHub](https://github.com/),
+[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
+[Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
+it is possible to build and upload installable packages to the
+[conda-forge](https://anaconda.org/conda-forge) [Anaconda-Cloud](https://anaconda.org/)
+channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance
 [conda-smithy](https://github.com/conda-forge/conda-smithy) has been developed.
@@ -172,9 +201,11 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
-* [@anissa111](https://github.com/anissa111)
-* [@erogluorhan](https://github.com/erogluorhan)
-* [@hCraker](https://github.com/hCraker)
-* [@michaelavs](https://github.com/michaelavs)
-* [@marodrig](https://github.com/marodrig)
+* [@NCAR/geocat](https://github.com/NCAR/geocat/)
+* [@anissa111](https://github.com/anissa111/)
+* [@erogluorhan](https://github.com/erogluorhan/)
+* [@hCraker](https://github.com/hCraker/)
+* [@marodrig](https://github.com/marodrig/)
+* [@michaelavs](https://github.com/michaelavs/)
 * [@pilotchute](https://github.com/pilotchute/)
+
