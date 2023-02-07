@@ -1,16 +1,17 @@
 {% set name = "geocat-f2py" %}
-{% set version = "2022.04.0" %}
+{% set version = "2023.2.0" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: http://github.com/NCAR/{{ name }}/archive/v{{ version }}.tar.gz # For building from a specific tag's tarball
-  sha256: 81d72c2b26690edb63f271cf5908f1237ea6f8798ebacff7beb68ddf27567d6b
+  #url: http://github.com/NCAR/{{ name }}/archive/v{{ version }}.tar.gz # For building from a specific tag's tarball
+  #sha256: 81d72c2b26690edb63f271cf5908f1237ea6f8798ebacff7beb68ddf27567d6b
   # git_tag: v{{ version }}   # For building from a specific tag
   # git_rev: march # For building from main branch for debugging purposes
-  # git_url: https://github.com/NCAR/{{ name }}.git
+  git_url: https://github.com/anissa111/geocat-f2py.git
+  git_rev: arm-64
 
 build:
   number: 1
