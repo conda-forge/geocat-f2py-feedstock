@@ -1,5 +1,11 @@
 #!/bin/sh
 
+set -e
+
+if [ "$target_platform" = "osx-arm64" ]; then
+  export CMAKE_OSX_ARCHITECTURES="arm64"
+fi
+
 cd src/geocat/f2py/fortran
 f2py -c --fcompiler=gnu95 dpres_plevel_dp.pyf dpres_plevel_dp.f
 f2py -c --fcompiler=gnu95 grid2triple.pyf grid2triple.f
