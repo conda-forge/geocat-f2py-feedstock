@@ -6,32 +6,37 @@ package:
   version: {{ version }}
 
 source:
-  url: http://github.com/NCAR/{{ name }}/archive/v{{ version }}.tar.gz # For building from a specific tag's tarball
-  sha256: 79722db659833752d39b54f92525323b3e13ccb4ff136b89c4c5386b8ee83898
+  #url: http://github.com/NCAR/{{ name }}/archive/v{{ version }}.tar.gz # For building from a specific tag's tarball
+  #sha256: 81d72c2b26690edb63f271cf5908f1237ea6f8798ebacff7beb68ddf27567d6b
   # git_tag: v{{ version }}   # For building from a specific tag
   # git_rev: march # For building from main branch for debugging purposes
-  # git_url: https://github.com/NCAR/{{ name }}.git
+  git_url: https://github.com/anissa111/geocat-f2py.git
+  git_rev: arm-64
 
 build:
   number: 1
   skip: true  # [py<38 or win]
 
 requirements:
+  run_constrained:  # [osx]
+    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx]
   build:
     - python                              # [build_platform != target_platform]
     - pip                                 # [build_platform != target_platform]
     - setuptools                          # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}  # [build_platform != target_platform]
     - numpy >=1.22                        # [build_platform != target_platform]
     - {{ compiler('fortran') }}
-    - cross-python_{{ target_platform }}  # [build_platform != target_platform]
+    - {{ compiler('c') }}
   host:
     - python
     - pip
-    - setuptools
     - numpy >=1.22
     - {{ compiler('fortran') }}
+    - {{ compiler('c') }}
   run:
     - python
+    - setuptools                          
     - numpy >=1.22
     - xarray
     - dask
