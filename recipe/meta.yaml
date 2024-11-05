@@ -13,7 +13,7 @@ source:
   # git_url: https://github.com/NCAR/{{ name }}.git
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<38 or win]
 
 requirements:
@@ -30,6 +30,7 @@ requirements:
     - setuptools
     - numpy >=1.22
     - {{ compiler('fortran') }}
+    - {{ stdlib("c") }}
   run:
     - python
     - numpy >=1.22
